@@ -1,0 +1,123 @@
+<html>
+    <head>
+        <title>calculator</title>
+    </head>
+    <body style="background-color: antiquewhite;">
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+        <br>
+
+        <style>
+
+            button{
+                font-size: 30px;
+                padding: 30px;
+                border-radius: 30px;
+                margin: 0px;
+                background-color: rgb(100, 97, 142);
+                
+                color: aliceblue;
+            }
+            #btn1{
+                text-align: center;
+                
+            }
+            #btn2{
+                text-align: center;
+                margin: 2px;
+            }
+            #btn3{
+                text-align: center;
+                
+            }
+            #zero{
+                position: fixed;
+                right: 805px;
+                top: 420px;
+                
+            }
+            #equels{
+                position: fixed;
+                right: 554px;
+                top: 420px;
+            }
+            #results{
+                position: fixed;
+                top: 50px;
+                right: 710px;
+                color: rgb(0, 0, 0);
+            }
+        </style>
+        <div id = "btn1">
+            <button onClick = "numbers('1')">1</button>
+            <button onClick = "numbers('2')">2</button>
+            <button onClick = "numbers('3')">3</button>
+            <button onClick = "setOperation('÷')">÷</button>
+            <br>
+
+        </div>
+        <div id = "btn2">
+            <button onClick = "numbers('4')">4</button>
+            <button onClick = "numbers('5')">5</button>
+            <button onClick = "numbers('6')">6</button>
+            <button onClick = "setOperation('x')">x</button>
+            <br>
+        </div> 
+        <div id="btn3">
+            <button onClick = "numbers('7')">7</button>
+            <button onClick = "numbers('8')">8</button>
+            <button onClick = "numbers('9')">9</button>
+            <button onClick = "setOperation('+')">+</button>
+        </div>
+
+
+        <br>
+        <div id = "zero">
+            <button onClick = "numbers('0')">0</button> 
+        </div>
+        <div id = "equels">
+            <button onClick = "setOperation('-')">-</button>
+            <button onClick = "calculate()">=</button>
+        </div>
+
+        </body>
+        <div id ="results">
+            <h1 id = "result"></h4>
+        </div>
+        <script>
+            let number1;
+            let number2;
+            let savedOperation; 
+            let result_text = document.getElementById("result");
+            function numbers(symbol){
+                result_text.innerHTML = result_text.innerHTML + symbol;
+            }
+            function setOperation(operation){
+                savedOperation = operation;
+                number1 = Number(result_text.innerHTML);
+                result_text.innerHTML = ""
+            }
+            function calculate(){
+                number2 = Number(result_text.innerHTML);
+                if (savedOperation === '+'){
+                    result_text.innerHTML = number1 + number2;
+                }
+                if (savedOperation === '-'){
+                    result_text.innerHTML = number1 - number2;
+                }
+                if (savedOperation === '÷'){
+                    result_text.innerHTML = number1 / number2;
+                }
+                if (savedOperation === 'x'){
+                    result_text.innerHTML = number1 * number2;
+                }
+                
+            }
+
+        </script>
+        
+    
+</html>
